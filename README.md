@@ -27,9 +27,11 @@ For more detailed notes check [The Hacker Recipes](https://www.thehacker.recipes
 
 ### GitHub&#x20;
 
+[https://github.com/dudisamarel/crtp-notes](https://github.com/dudisamarel/crtp-notes)
+
 ### Gitbook&#x20;
 
-{% embed url="https://dudisamarel.gitbook.io/crtp-notes/" %}
+[https://dudisamarel.gitbook.io/crtp-notes/](https://dudisamarel.gitbook.io/crtp-notes/)
 
 ***
 
@@ -37,7 +39,7 @@ For more detailed notes check [The Hacker Recipes](https://www.thehacker.recipes
 
 ### LinkedIn &#x20;
 
-{% embed url="https://www.linkedin.com/in/dudi-samarel-1a595a1a9/" %}
+[https://www.linkedin.com/in/dudi-samarel-1a595a1a9/](https://www.linkedin.com/in/dudi-samarel-1a595a1a9/)
 
 ### Email&#x20;
 
