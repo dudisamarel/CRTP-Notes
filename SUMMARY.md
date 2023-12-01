@@ -31,6 +31,8 @@
   * [Silver Ticket](persistence/kerberos/silver-ticket.md)
   * [Diamond Ticket](persistence/kerberos/diamond-ticket.md)
 * [Skeleton Key](persistence/skeleton-key.md)
+* [DSRM](persistence/dsrm.md)
+* [Page](persistence/page.md)
 
 ## 💡 Misc
 
