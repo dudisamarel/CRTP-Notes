@@ -22,7 +22,9 @@
 ## 🏎 Lateral Movement
 
 * [WinRM](lateral-movement/winrm.md)
-* [Dumping](lateral-movement/dumping.md)
+* [LSASS Dump](lateral-movement/lsass-dump.md)
+* [DC Sync](lateral-movement/dc-sync.md)
+* [Over Pass The Hash](lateral-movement/over-pass-the-hash.md)
 
 ## 🔧 Persistence
 
@@ -32,7 +34,8 @@
   * [Diamond Ticket](persistence/kerberos/diamond-ticket.md)
 * [Skeleton Key](persistence/skeleton-key.md)
 * [DSRM](persistence/dsrm.md)
-* [Page](persistence/page.md)
+* [Custom SSP](persistence/custom-ssp.md)
+* [AdminSDHolder](persistence/adminsdholder.md)
 
 ## 💡 Misc
 
