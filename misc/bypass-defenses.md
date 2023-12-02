@@ -125,7 +125,7 @@ AmsiTrigger_x64.exe -i PowerUp.ps1
 
 Example for scanning
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 Example for bypassing&#x20;
 

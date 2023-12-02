@@ -17,7 +17,9 @@
 ## 🔪 Privilege Escalation
 
 * [Local Privilege Escalation](privilege-escalation/local-privilege-escalation.md)
-* [Domain Privilege Escalation](privilege-escalation/domain-privilege-escalation.md)
+* [Domain Privilege Escalation](privilege-escalation/domain-privilege-escalation/README.md)
+  * [Kerberoast](privilege-escalation/domain-privilege-escalation/kerberoast.md)
+  * [AS-REP Roasting](privilege-escalation/domain-privilege-escalation/as-rep-roasting.md)
 
 ## 🏎 Lateral Movement
 
@@ -36,6 +38,7 @@
 * [DSRM](persistence/dsrm.md)
 * [Custom SSP](persistence/custom-ssp.md)
 * [AdminSDHolder](persistence/adminsdholder.md)
+* [Security Descriptors - WMI](persistence/security-descriptors-wmi.md)
 
 ## 💡 Misc
 
