@@ -69,6 +69,9 @@ Get a list of all domain trusts for the current domain
 ```powershell
 Get-DomainTrust
 Get-DomainTrust -Domain us.dollarcorp.moneycorp.local
+
+# External trusts
+Get-DomainTrust | ?{$_.TrustAttributes -eq "FILTER_SIDS"}
 ```
 
 Get details about the current forest
@@ -83,6 +86,7 @@ Get all domains in the current forest
 ```powershell
 Get-ForestDomain
 Get-ForestDomain -Forest eurocorp.local
+
 ```
 {% endcode %}
 
@@ -96,6 +100,9 @@ Get-ForestGlobalCatalog -Forest eurocorp.local
 Map trusts of a forest&#x20;
 
 ```powershell
+# External trusts in current forest
+Get-ForestDomain | %{Get-DomainTrust -Domain $_.Name} | ?{$_.TrustAttributes -eq "FILTER_SIDS"}
+
 Get-ForestTrust
 Get-ForestTrust -Forest eurocorp.local
 ```

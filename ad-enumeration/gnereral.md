@@ -325,17 +325,28 @@ Get-DomainGPOUserLocalGroupMapping -Identity student1 -Verbose
 {% tab title="PowerView" %}
 Get OUs in a domain
 
+{% code overflow="wrap" %}
 ```powershell
+# Get all domain OUs
 Get-DomainOU
+
+# Get all computers inside an OU
+(Get-DomainOU -Identity StudentMachines).distinguishedname | %{Get-DomainComputer -SearchBase $_} | select name
 ```
+{% endcode %}
 
-Get GPO applied on an OU
+Using `Get-NetOU`
 
+{% code overflow="wrap" %}
 ```powershell
-Get-NetOU  | select gplink  # step 1 - achieve GPO name
+# Get all computers inside an OU
+(Get-NetOU -Identity StudentMachines).distinguishedname | %{Get-DomainComputer -SearchBase $_} | select name
 
-Get-DomainGPO -Identity "{0D1CC23D-1F20-4EEE-AF64-D99597AE2A6E}"
+# Get GPO applied on an OU 
+Get-NetOU -Identity "StudentMachines" | select gplink # Get GPO ID
+Get-DomainGPO -Identity "{0D1CC23D-1F20-4EEE-AF64-D99597AE2A6E}" # Get GPO Info
 ```
+{% endcode %}
 {% endtab %}
 
 {% tab title="AD Module" %}
@@ -417,14 +428,13 @@ Find-PSRemotingLocalAdminAccess.ps1
 
 Find machines  where a domain admin has sessions
 
-```powershell
-# Very noisy
-Find-DomainUserLocation -Verbose
-Find-DomainUserLocation -UserGroupIdentity "RDPUsers"
+<pre class="language-powershell"><code class="lang-powershell"># Very noisy
+<strong>Find-DomainUserLocation -Verbose
+</strong>Find-DomainUserLocation -UserGroupIdentity "RDPUsers"
 Find-DomainUserLocation -CheckAccess 
 Find-DomainUserLocation -Stealth # less noisy, targeting file servers
 
-```
+</code></pre>
 
 List sessions on remote machines ([source](https://github.com/Leo4j/Invoke-SessionHunter))
 

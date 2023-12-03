@@ -29,13 +29,14 @@ Active Directory object permissions:
 {% tab title="PowerView" %}
 Get the ACLs associated with the specified object
 
-```powershell
-Get-DomainObjectAcl -SamAccountName student1 -ResolveGUIDs
-```
+<pre class="language-powershell"><code class="lang-powershell"><strong>Get-DomainObjectAcl -SamAccountName student1 -ResolveGUIDs
+</strong></code></pre>
 
-Get the ACLs associated with the specified prefix to be used for search
+Get the ACLs associated with the specified group
 
 <pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell"><strong>Get-DomainObjectAcl -SearchBase "LDAP://CN=Domain Admins,CN=Users,DC=dollarcorp,DC=moneycorp,DC=local" -ResolveGUIDs -Verbose
+</strong><strong>
+</strong><strong>Get-DomainObjectAcl -Identity "Domain Admins" -ResolveGUIDs -Verbose
 </strong></code></pre>
 
 Search for interesting ACEs
@@ -43,9 +44,6 @@ Search for interesting ACEs
 {% code overflow="wrap" %}
 ```powershell
 Find-InterestingDomainAcl -ResolveGUIDs | ?{$_.IdentityReferenceName -match "student1"}
-
-# Recursivly find all the groups the user is member of
-Get-DomainGroup -MemberIdentity "[User]" | Select-Object -ExpandProperty "SamAccountName" | ForEach-Object { Write-Host "Searching for interesting ACLs for $_" -ForegroundColor "Yellow"; Find-InterestingDomainAcl -ResolveGUIDs | Where-Object { $_.IdentityReferenceName -match $_ } }
 ```
 {% endcode %}
 
