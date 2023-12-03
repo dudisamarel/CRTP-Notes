@@ -38,7 +38,7 @@
 * [DSRM](persistence/dsrm.md)
 * [Custom SSP](persistence/custom-ssp.md)
 * [AdminSDHolder](persistence/adminsdholder.md)
-* [Security Descriptors - WMI](persistence/security-descriptors-wmi.md)
+* [Security Descriptors](persistence/security-descriptors.md)
 
 ## 💡 Misc
 
