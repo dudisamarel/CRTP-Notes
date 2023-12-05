@@ -27,6 +27,7 @@
 * [LSASS Dump](lateral-movement/lsass-dump.md)
 * [DC Sync](lateral-movement/dc-sync.md)
 * [Over Pass The Hash](lateral-movement/over-pass-the-hash.md)
+* [Services](lateral-movement/services.md)
 
 ## 🔧 Persistence
 
