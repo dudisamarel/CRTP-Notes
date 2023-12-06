@@ -39,6 +39,7 @@
 * [Custom SSP](persistence/custom-ssp.md)
 * [AdminSDHolder](persistence/adminsdholder.md)
 * [Security Descriptors](persistence/security-descriptors.md)
+* [ACL](persistence/acl.md)
 
 ## 💡 Misc
 

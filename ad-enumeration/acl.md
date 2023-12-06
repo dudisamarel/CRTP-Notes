@@ -37,6 +37,9 @@ Get the ACLs associated with the specified group
 <pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell"><strong>Get-DomainObjectAcl -SearchBase "LDAP://CN=Domain Admins,CN=Users,DC=dollarcorp,DC=moneycorp,DC=local" -ResolveGUIDs -Verbose
 </strong><strong>
 </strong><strong>Get-DomainObjectAcl -Identity "Domain Admins" -ResolveGUIDs -Verbose
+</strong><strong>
+</strong><strong># Check replication permission
+</strong><strong>Get-DomainObjectAcl -SearchBase "DC=dollarcorp,DC=moneycorp,DC=local" -SearchScope Base -ResolveGUIDs | ?{($_.ObjectAceType -match 'replication-get') -or ($_.ActiveDirectoryRights -match 'GenericAll')} | ForEach-Object {$_ | Add-Member NoteProperty 'IdentityName' $(Convert-SidToName $_.SecurityIdentifier);$_} 
 </strong></code></pre>
 
 Search for interesting ACEs
