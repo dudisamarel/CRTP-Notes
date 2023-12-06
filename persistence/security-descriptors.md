@@ -1,4 +1,4 @@
-# Security Descriptors - WMI
+# Security Descriptors
 
 ## Format
 
@@ -32,7 +32,7 @@ Apply to all namespaces
 
 <pre class="language-powershell"><code class="lang-powershell"><strong># Check if worked
 </strong><strong># Worked if didn't get access denied 
-</strong><strong>Get-wmiobject -Class win32_opratingsystem -ComupterName &#x3C;dc_machine>
+</strong><strong>gwmi -class win32_operatingsystem -ComputerName &#x3C;dc_machine>
 </strong></code></pre>
 
 
