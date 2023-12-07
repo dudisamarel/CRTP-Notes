@@ -20,6 +20,7 @@
 * [Domain Privilege Escalation](privilege-escalation/domain-privilege-escalation/README.md)
   * [Kerberoast](privilege-escalation/domain-privilege-escalation/kerberoast.md)
   * [AS-REP Roasting](privilege-escalation/domain-privilege-escalation/as-rep-roasting.md)
+  * [Delegations](privilege-escalation/domain-privilege-escalation/delegations.md)
 
 ## 🏎 Lateral Movement
 
