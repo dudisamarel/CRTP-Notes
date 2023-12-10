@@ -9,7 +9,7 @@ The book is primarily intended for viewing on Gitbook, but feel free to fork it 
 Ready to conquer CRTP! 🚀
 
 > **Disclaimer:** These notes are based on my understanding and are not meant to be your standalone resource.\
-> For more detailed notes check [The Hacker Recipes](https://www.thehacker.recipes/) or [Hacktricks](https://book.hacktricks.xyz/welcome/readme).
+> For more detailed notes check [The Hacker Recipes](https://www.thehacker.recipes/) or [ired.team](https://www.ired.team/).
 
 ***
 
