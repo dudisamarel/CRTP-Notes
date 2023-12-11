@@ -23,6 +23,7 @@
   * [Delegations](privilege-escalation/domain-privilege-escalation/delegations.md)
 * [Cross Domain Privilege Escalation](privilege-escalation/cross-domain-privilege-escalation/README.md)
   * [Trusts](privilege-escalation/cross-domain-privilege-escalation/trusts.md)
+  * [AD CS](privilege-escalation/cross-domain-privilege-escalation/ad-cs.md)
 
 ## 🏎 Lateral Movement
 
