@@ -24,6 +24,7 @@
 * [Cross Domain Privilege Escalation](privilege-escalation/cross-domain-privilege-escalation/README.md)
   * [Trusts](privilege-escalation/cross-domain-privilege-escalation/trusts.md)
   * [AD CS](privilege-escalation/cross-domain-privilege-escalation/ad-cs.md)
+  * [MSSQL Servers](privilege-escalation/cross-domain-privilege-escalation/mssql-servers.md)
 
 ## 🏎 Lateral Movement
 
