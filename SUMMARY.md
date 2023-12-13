@@ -50,7 +50,7 @@
 
 * [PowerShell Basics](misc/powershell-basics.md)
 * [Bypass defenses](misc/bypass-defenses.md)
-* [Mitigations](misc/mitigations.md)
+* [Mitigations](misc/defense-best-practices.md)
 
 ## 📚 Resources
 
