@@ -51,6 +51,14 @@ Also [#invisi-shell](misc/bypass-defenses.md#invisi-shell "mention") can be used
 
 [#firewall](misc/bypass-defenses.md#firewall "mention")
 
+
+
+
+
+***
+
+
+
 ## 1. Local Privilege Escalation
 
 check our privileges using `whoami /all`
@@ -62,6 +70,12 @@ Use [#powerup-1](privilege-escalation/local-privilege-escalation.md#powerup-1 "m
 * Modifiable Service
 
 Once we are Local admin use [lsass-dump.md](lateral-movement/lsass-dump.md "mention") to find other users logons
+
+
+
+***
+
+
 
 ## 2. Domain Enumeration
 
@@ -94,6 +108,12 @@ Understand trusts and map them between the domains
 
 [forests-and-trusts.md](ad-enumeration/forests-and-trusts.md "mention")
 
+
+
+***
+
+
+
 ## 3. Domain Privileges Escalation
 
 ### Reverse shell by abusing Jenkins
@@ -121,6 +141,12 @@ abusing ACL can lead&#x20;
 * [security-descriptors.md](persistence/security-descriptors.md "mention")
 * Reset user password
 
+
+
+***
+
+
+
 ## 4. Lateral Movement
 
 ### Bypass Defenses
@@ -134,6 +160,12 @@ abusing ACL can lead&#x20;
 ### User Hunting
 
 [#user-hunting](ad-enumeration/gnereral.md#user-hunting "mention") - Hunt for local admin access
+
+
+
+***
+
+
 
 ## 5. Cross Domain Privilege Escalation
 
