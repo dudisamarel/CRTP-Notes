@@ -69,18 +69,38 @@ Better to write down the interesting ACL so they might be useful later
 
 [gnereral.md](ad-enumeration/gnereral.md "mention")
 
+Start to build up a mind map for attacking paths
+
 * Domain
-* Domain Controller
+* Domain Controller&#x20;
 * Users
 * Computers
 * Domain and Enterprise Administrators
 * OUs
 * GPOs
-* SPNs&#x20;
+* SPNs
 
 ### Forests and Trusts
 
+Understand trusts and map them between the domains
+
 [forests-and-trusts.md](ad-enumeration/forests-and-trusts.md "mention")
+
+## 3. Domain Privileges Escalation
+
+* &#x20;Reverse shell by abusing Jenkins
+* [#user-hunting](ad-enumeration/gnereral.md#user-hunting "mention") - Hunt for local admin access
+* [ad-cs.md](privilege-escalation/cross-domain-privilege-escalation/ad-cs.md "mention")&#x20;
+* &#x20;[delegations.md](privilege-escalation/domain-privilege-escalation/delegations.md "mention") - Search for Delegations
+* [acl.md](persistence/acl.md "mention") - abusing ACL can lead to RBCD, DC Sync and Reset user password
+* [mssql-servers.md](privilege-escalation/cross-domain-privilege-escalation/mssql-servers.md "mention")&#x20;
+
+
+
+## 4. Cross Domain Privilege Escalation
+
+* [mssql-servers.md](privilege-escalation/cross-domain-privilege-escalation/mssql-servers.md "mention")&#x20;
+* [trusts.md](privilege-escalation/cross-domain-privilege-escalation/trusts.md "mention") - After abusing Trust keys or krbtgt of trusted domain it is possible to abuse other forest abusing Inter-Realm TGT&#x20;
 
 
 
