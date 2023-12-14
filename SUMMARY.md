@@ -3,13 +3,18 @@
 * [🛠 CRTP Notes](README.md)
 * [⚙ CRTP Methodology](crtp-methodology.md)
 
+## 💡 Misc
+
+* [PowerShell Basics](misc/powershell-basics.md)
+* [Bypass defenses](misc/bypass-defenses.md)
+
 ## 🔨 Basic enumeration
 
 * [General](basic-enumeration/general.md)
 * [Network](basic-enumeration/network.md)
 * [Protection](basic-enumeration/protection.md)
 
-## ⛏ AD Enumeration&#x20;
+## ⛏ AD Enumeration
 
 * [Gnereral](ad-enumeration/gnereral.md)
 * [ACL](ad-enumeration/acl.md)
@@ -47,14 +52,12 @@
 * [Security Descriptors](persistence/security-descriptors.md)
 * [ACL](persistence/acl.md)
 
-## 💡 Misc
+***
 
-* [PowerShell Basics](misc/powershell-basics.md)
-* [Bypass defenses](misc/bypass-defenses.md)
-* [Mitigations](misc/defense-best-practices.md)
+* [🛡 Mitigations](defense-best-practices.md)
 
 ## 📚 Resources
 
 * [AD attacking overall](https://zer1t0.gitlab.io/posts/attacking\_ad/)
-* [Rubeus Guide ](https://www.hackingarticles.in/a-detailed-guide-on-rubeus/)
-* [The Hacker Recipes ](https://www.thehacker.recipes/)
+* [Rubeus Guide](https://www.hackingarticles.in/a-detailed-guide-on-rubeus/)
+* [The Hacker Recipes](https://www.thehacker.recipes/)

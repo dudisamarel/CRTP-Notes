@@ -1,4 +1,4 @@
-# Mitigations
+# 🛡 Mitigations
 
 ## Kerberoast
 
