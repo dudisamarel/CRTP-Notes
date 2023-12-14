@@ -1,7 +1,7 @@
 # Table of contents
 
 * [🛠 CRTP Notes](README.md)
-* [⚙ Methodology](methodology.md)
+* [⚙ CRTP Methodology](crtp-methodology.md)
 
 ## 🔨 Basic enumeration
 

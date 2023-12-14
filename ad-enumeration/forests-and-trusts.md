@@ -44,7 +44,7 @@ Tree-Root will always be two way transitive.
 Trust between two domains in different forests when forests do not have a trust relationship. \
 Can be one-way or two-way but can't be transitive.
 
-<img src="../.gitbook/assets/file.excalidraw (1).svg" alt="" class="gitbook-drawing">
+<img src="../.gitbook/assets/file.excalidraw (1) (1).svg" alt="" class="gitbook-drawing">
 
 ## Forest Trusts
 
