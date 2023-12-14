@@ -12,6 +12,12 @@ Examples
 1,2,3 | ?{$_ -gt 1} will print 2,3
 ```
 
+### Language Mode
+
+```powershell
+$ExecutionContext.SessionState.LanguageMode
+```
+
 ### Execution Policy
 
 Several ways to bypass
