@@ -1,3 +1,17 @@
+---
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+---
+
 # 🛠 CRTP Notes
 
 This book is a collection of notes and tips that I have gathered during my studies for the Certified Red Team Professional (CRTP) exam.\
