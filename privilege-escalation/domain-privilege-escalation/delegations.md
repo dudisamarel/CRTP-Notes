@@ -152,6 +152,9 @@ Get-DomainComputer dcorp-mgmt -Properties 'msds-allowedtoactonbehalfofotherident
 msds-allowedtoactonbehalfofotheridentity
 ----------------------------------------
 {1, 0, 4, 128...}
+
+# Verify using ADModule
+Get-ADComputer dcorp-mgmt -Properties PrincipalsAllowedToDelegateToAccount
 </code></pre>
 
 #### Abuse using Rubeus
