@@ -7,6 +7,7 @@
 
 * [PowerShell Basics](misc/powershell-basics.md)
 * [Bypass defenses](misc/bypass-defenses.md)
+* [Transfer files](misc/transfer-files.md)
 
 ## 🔨 Basic enumeration
 
