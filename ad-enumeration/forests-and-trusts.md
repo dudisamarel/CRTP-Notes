@@ -144,3 +144,6 @@ Get-ADTrust -Filter 'msDS-TrustForestTrustInfo -ne "$null"'
 {% endtab %}
 {% endtabs %}
 
+## References&#x20;
+
+* [https://learn.microsoft.com/en-us/entra/identity/domain-services/concepts-forest-trust](https://learn.microsoft.com/en-us/entra/identity/domain-services/concepts-forest-trust)

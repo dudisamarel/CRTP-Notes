@@ -9,10 +9,6 @@ The **security descriptor** for an object can contain two types of ACLs:
 * **SACL** - Logs success and failure messages when an object is accessed.\
 
 
-An example for ACL
-
-<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
-
 Active Directory object permissions:
 
 * **GenericAll** - full rights to the object (add users to a group or reset user's password)
