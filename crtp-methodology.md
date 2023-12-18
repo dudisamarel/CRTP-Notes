@@ -155,7 +155,7 @@ abusing ACL can lead&#x20;
 
 ### OPTH
 
-[lsass-dump.md](lateral-movement/lsass-dump.md "mention") after getting Domain privileges then moving inside the domain using [over-pass-the-hash.md](lateral-movement/over-pass-the-hash.md "mention")then spawn PowerShell session.
+[lsass-dump.md](lateral-movement/lsass-dump.md "mention") after getting Admin privileges then moving inside the domain using [over-pass-the-hash.md](lateral-movement/over-pass-the-hash.md "mention")then spawn PowerShell session using [winrm.md](lateral-movement/winrm.md "mention").
 
 ### User Hunting
 
