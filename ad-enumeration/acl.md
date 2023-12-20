@@ -25,7 +25,10 @@ Active Directory object permissions:
 {% tab title="PowerView" %}
 Get the ACLs associated with the specified object
 
-<pre class="language-powershell"><code class="lang-powershell"><strong>Get-DomainObjectAcl -SamAccountName student1 -ResolveGUIDs
+<pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell"><strong>Get-DomainObjectAcl -SamAccountName student1 -ResolveGUIDs
+</strong><strong>
+</strong> Get-DomainObjectAcl -ResolveGUIDs -Identity "victim" | ? {$_.SecurityIdentifier -eq (Convert-NameToSid foothold)}
+<strong>
 </strong></code></pre>
 
 Get the ACLs associated with the specified group
