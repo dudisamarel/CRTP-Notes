@@ -413,11 +413,11 @@ Get-NetFileServer
 
 {% tabs %}
 {% tab title="PowerView" %}
-Find&#x20;
+Find Local group members of RDP or WinRM of specific machine
 
-```
-Get-NetLocalGroupMember -ComputerName ACADEMY-EA-MS01 -GroupName "Remote Desktop Users"
-```
+<pre class="language-powershell"><code class="lang-powershell"><strong>Get-NetLocalGroupMember -ComputerName COMPUTER_NAME -GroupName "Remote Desktop Users"
+</strong>Get-NetLocalGroupMember -ComputerName COMPUTER_NAME -GroupName "Remote Management Users"
+</code></pre>
 
 Find all machines on the current domain where the current user has local admin access
 
