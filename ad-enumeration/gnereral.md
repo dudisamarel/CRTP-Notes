@@ -413,11 +413,16 @@ Get-NetFileServer
 
 {% tabs %}
 {% tab title="PowerView" %}
+Find&#x20;
+
+```
+Get-NetLocalGroupMember -ComputerName ACADEMY-EA-MS01 -GroupName "Remote Desktop Users"
+```
+
 Find all machines on the current domain where the current user has local admin access
 
-```powershell
-# Very noisy
-Find-LocalAdminAccess -Verbose
+<pre class="language-powershell"><code class="lang-powershell"><strong># Very noisy
+</strong>Find-LocalAdminAccess -Verbose
 
 # Very noisy
 # When SMB and RPC are blocked
@@ -433,7 +438,7 @@ Find-WMILocalAdminAccess
 Find-PSRemotingLocalAdminAccess.ps1
 
 
-```
+</code></pre>
 
 Find machines  where a domain admin has sessions
 
