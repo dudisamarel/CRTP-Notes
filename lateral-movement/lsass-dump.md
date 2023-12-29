@@ -47,3 +47,5 @@ Enumerates vault credentials of scheduled tasks.
 ```powershell
 Invoke-Mimi -Command '"token::elevate" "vault::cred /patch"'
 ```
+
+####
