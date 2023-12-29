@@ -23,7 +23,9 @@
 
 * Monitor for changes of the registry `HKLM:\System\CurrentControlSet\Control\Lsa\SecurityPackages`
 
+## MITRE ATT\&CK
 
+MITRE ATT\&CK® is a globally accessible knowledge base of adversary tactics and techniques based on real-world observations including mitigations.
 
-##
+[https://attack.mitre.org/](https://attack.mitre.org/)
 
