@@ -1,7 +1,7 @@
 # Table of contents
 
-* [🛠 CRTP Notes](README.md)
-* [⚙ CRTP Methodology](crtp-methodology.md)
+* [🛠️ CRTP Notes](README.md)
+* [⚙️ CRTP Methodology](crtp-methodology.md)
 
 ## 💡 Misc
 
@@ -15,7 +15,7 @@
 * [Network](basic-enumeration/network.md)
 * [Protection](basic-enumeration/protection.md)
 
-## ⛏ AD Enumeration
+## ⛏️ AD Enumeration
 
 * [Gnereral](ad-enumeration/gnereral.md)
 * [ACL](ad-enumeration/acl.md)
@@ -33,7 +33,7 @@
   * [AD CS](privilege-escalation/cross-domain-privilege-escalation/ad-cs.md)
   * [MSSQL Servers](privilege-escalation/cross-domain-privilege-escalation/mssql-servers.md)
 
-## 🏎 Lateral Movement
+## 🏎️ Lateral Movement
 
 * [WinRM](lateral-movement/winrm.md)
 * [Credentials Dumping](lateral-movement/lsass-dump.md)
@@ -56,7 +56,7 @@
 
 ***
 
-* [🛡 Mitigations](defense-best-practices.md)
+* [🛡️ Mitigations](defense-best-practices.md)
 
 ## 📚 Resources
 

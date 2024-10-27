@@ -57,15 +57,16 @@ Invoke-PrivEsc
 {% tab title="PowerUp" %}
 Find vulnerable service configuration
 
-<pre class="language-powershell"><code class="lang-powershell"><strong># Get services with unquoted paths and spaces
-</strong>Get-ServiceUnquoted -Verbose
+```powershell
+# Get services with unquoted paths and spaces
+Get-ServiceUnquoted -Verbose
 
 # Get services where current user can write to binary path
 Get-ModifiableServiceFile -Verbose
 
 # Get the services whose configuration current user can modify
 Get-ModifiableService -Verbose
-</code></pre>
+```
 
 Add domain user to the local Administrators group
 

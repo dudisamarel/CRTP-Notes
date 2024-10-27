@@ -62,12 +62,13 @@ Set-DomainUserPassword -Identity testda -AccountPassword (ConvertTo-SecureString
 {% endtab %}
 
 {% tab title="AD Module" %}
-<pre class="language-powershell"><code class="lang-powershell"># Add user to DA group
-<strong>Add-ADGroupMember -Identity 'Domain Admins' -Members testda
-</strong>
+```powershell
+# Add user to DA group
+Add-ADGroupMember -Identity 'Domain Admins' -Members testda
+
 # Reset Password
 Set-ADAccountPassword -Identity testda -NewPassword (ConvertTo-SecureString "Password@123" -AsPlainText -Force) -Verbose
-</code></pre>
+```
 {% endtab %}
 {% endtabs %}
 

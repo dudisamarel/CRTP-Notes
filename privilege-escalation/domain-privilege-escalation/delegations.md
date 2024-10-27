@@ -71,9 +71,10 @@ in order to create a more restrictive delegation mechanism, Microsoft develop tw
 
 {% tabs %}
 {% tab title="PowerView" %}
-<pre class="language-powershell"><code class="lang-powershell"><strong>Get-DomainUser -TrustedToAuth
-</strong>Get-DomainComputer -TrustedToAuth
-</code></pre>
+```powershell
+Get-DomainUser -TrustedToAuth
+Get-DomainComputer -TrustedToAuth
+```
 {% endtab %}
 
 {% tab title="AD Module" %}

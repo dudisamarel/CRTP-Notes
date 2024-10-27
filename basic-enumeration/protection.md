@@ -18,8 +18,9 @@ $ExecutionContext.SessionState.LanguageMode
 
 ### List AppLocker Rules
 
-<pre class="language-powershell"><code class="lang-powershell"><strong>Get-AppLockerPolicy -Effective | select -ExpandProperty RuleCollections
-</strong></code></pre>
+```powershell
+Get-AppLockerPolicy -Effective | select -ExpandProperty RuleCollections
+```
 
 Test AppLocker Policy
 

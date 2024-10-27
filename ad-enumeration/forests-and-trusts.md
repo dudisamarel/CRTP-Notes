@@ -76,9 +76,12 @@ Get-DomainTrust | ?{$_.TrustAttributes -eq "FILTER_SIDS"}
 
 Get details about the current forest
 
-<pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell"><strong>Get-Forest
-</strong>Get-Forest -Forest eurocorp.local
-</code></pre>
+{% code overflow="wrap" %}
+```powershell
+Get-Forest
+Get-Forest -Forest eurocorp.local
+```
+{% endcode %}
 
 Get all domains in the current forest
 
@@ -118,9 +121,12 @@ Get-ADTrust -Identity us.dollarcorp.moneycorp.local
 
 Get details about the current forest
 
-<pre class="language-powershell" data-overflow="wrap"><code class="lang-powershell"><strong>Get-ADForest
-</strong>Get-ADForest -Identity eurocorp.local
-</code></pre>
+{% code overflow="wrap" %}
+```powershell
+Get-ADForest
+Get-ADForest -Identity eurocorp.local
+```
+{% endcode %}
 
 Get all domains in the current forest
 

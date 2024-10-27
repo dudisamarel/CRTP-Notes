@@ -10,9 +10,10 @@
 
 [AD module](https://github.com/samratashok/ADModule) - MS singed&#x20;
 
-<pre class="language-powershell"><code class="lang-powershell"><strong>Import-Module C:\AD\Tools\ADModule-master\Microsoft.ActiveDirectory.Management.dll
-</strong>Import-Module C:\AD\Tools\ADModule-master\ActiveDirectory\ActiveDirectory.psd1
-</code></pre>
+```powershell
+Import-Module C:\AD\Tools\ADModule-master\Microsoft.ActiveDirectory.Management.dll
+Import-Module C:\AD\Tools\ADModule-master\ActiveDirectory\ActiveDirectory.psd1
+```
 
 ### BloodHound
 
@@ -64,8 +65,9 @@ Get-Domain -Domain moneycorp.local
 
 Get domain SID for the current domain
 
-<pre class="language-powershell"><code class="lang-powershell"><strong>Get-DomainSID
-</strong></code></pre>
+```powershell
+Get-DomainSID
+```
 
 Get domain policy for the current domain
 
@@ -415,14 +417,16 @@ Get-NetFileServer
 {% tab title="PowerView" %}
 Find Local group members of RDP or WinRM of specific machine
 
-<pre class="language-powershell"><code class="lang-powershell"><strong>Get-NetLocalGroupMember -ComputerName COMPUTER_NAME -GroupName "Remote Desktop Users"
-</strong>Get-NetLocalGroupMember -ComputerName COMPUTER_NAME -GroupName "Remote Management Users"
-</code></pre>
+```powershell
+Get-NetLocalGroupMember -ComputerName COMPUTER_NAME -GroupName "Remote Desktop Users"
+Get-NetLocalGroupMember -ComputerName COMPUTER_NAME -GroupName "Remote Management Users"
+```
 
 Find all machines on the current domain where the current user has local admin access
 
-<pre class="language-powershell"><code class="lang-powershell"><strong># Very noisy
-</strong>Find-LocalAdminAccess -Verbose
+```powershell
+# Very noisy
+Find-LocalAdminAccess -Verbose
 
 # Very noisy
 # When SMB and RPC are blocked
@@ -438,17 +442,18 @@ Find-WMILocalAdminAccess
 Find-PSRemotingLocalAdminAccess.ps1
 
 
-</code></pre>
+```
 
 Find machines  where a domain admin has sessions
 
-<pre class="language-powershell"><code class="lang-powershell"># Very noisy
-<strong>Find-DomainUserLocation -Verbose
-</strong>Find-DomainUserLocation -UserGroupIdentity "RDPUsers"
+```powershell
+# Very noisy
+Find-DomainUserLocation -Verbose
+Find-DomainUserLocation -UserGroupIdentity "RDPUsers"
 Find-DomainUserLocation -CheckAccess 
 Find-DomainUserLocation -Stealth # less noisy, targeting file servers
 
-</code></pre>
+```
 
 List sessions on remote machines ([source](https://github.com/Leo4j/Invoke-SessionHunter))
 

